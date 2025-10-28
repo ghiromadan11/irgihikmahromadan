@@ -3,57 +3,29 @@
 namespace App\Controllers;
 
 use App\Models\KomoditasModel;
+use App\Models\HargaModel;
 
-class Komoditas extends BaseController
+class HomeAdmin extends BaseController
 {
     public function index()
     {
-        $model = new KomoditasModel();
-        $data['komoditas'] = $model->findAll();
 
-        return view('komoditas/index', $data);
+        if (!session()->get('admin_id')) {
+        return view('admin/not_logged_in');
     }
 
-    public function create()
-    {
-        return view('komoditas/create');
-    }
+        $komoditasModel = new KomoditasModel();
+        $hargaModel     = new HargaModel();
 
-    public function store()
-    {
-        $model = new KomoditasModel();
-        $model->insert([
-            'nama_komoditas' => $this->request->getPost('nama_komoditas'),
-            'satuan' => $this->request->getPost('satuan'),
-        ]);
+        $data = [
+            'komoditas'       => $komoditasModel->findAll(),
+            'data_terbaru'    => $hargaModel
+                ->select('harga_pangan.*, wilayah.nama_wilayah')
+                ->join('wilayah', 'wilayah.id = harga_pangan.wilayah_id', 'left')
+                ->orderBy('tanggal', 'DESC')
+                ->findAll(5),
+        ];
 
-        return redirect()->to('/komoditas');
-    }
-
-    public function edit($id)
-    {
-        $model = new KomoditasModel();
-        $data['komoditas'] = $model->find($id);
-
-        return view('komoditas/edit', $data);
-    }
-
-    public function update($id)
-    {
-        $model = new KomoditasModel();
-        $model->update($id, [
-            'nama_komoditas' => $this->request->getPost('nama_komoditas'),
-            'satuan' => $this->request->getPost('satuan'),
-        ]);
-
-        return redirect()->to('/komoditas');
-    }
-
-    public function delete($id)
-    {
-        $model = new KomoditasModel();
-        $model->delete($id);
-
-        return redirect()->to('/komoditas');
+        return view('dashboard/index', $data);
     }
 }
