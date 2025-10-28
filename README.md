@@ -14,6 +14,12 @@ It was developed using **CodeIgniter 4** and follows the **Object-Oriented Analy
 - 🌍 Web-based and responsive design  
 
 ---
+2. Place the project in your `htdocs` folder (XAMPP)  
+3. Import the database file (if provided) to MySQL  
+4. Configure `.env`:
+```bash
+app.baseURL = 'http://localhost/pemantauan_harga_pangan/public/'
+
 
 ## 🧠 Technologies Used
 - **Backend:** PHP (CodeIgniter 4 Framework)  
