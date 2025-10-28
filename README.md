@@ -1,3 +1,39 @@
+# 🧾 Food Price Monitoring System – Sukabumi
+
+This project is a **web-based Early Warning System** for monitoring food prices in Sukabumi.  
+It was developed using **CodeIgniter 4** and follows the **Object-Oriented Analysis and Design (OOAD)** method.
+
+---
+
+## 🚀 Features
+- ✅ Admin and user login system  
+- 📊 Dashboard showing daily food price trends  
+- ✏️ Add, edit, and delete price data  
+- 📅 Historical record tracking  
+- 📈 Chart visualization using Chart.js  
+- 🌍 Web-based and responsive design  
+
+---
+
+## 🧠 Technologies Used
+- **Backend:** PHP (CodeIgniter 4 Framework)  
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap  
+- **Database:** MySQL  
+- **Visualization:** Chart.js  
+
+---
+
+## 👨‍💻 Author
+**Irgi Hikmah Romadan**  
+🎓 Information Systems Student | Data & FinTech Enthusiast  
+📧 Email: irgihikmahromadan1122@gmail.com  
+💼 LinkedIn: [linkedin.com/in/IrgiHikmahRomadan](https://linkedin.com/in/IrgiHikmahRomadan)
+
+---
+
+## ⚙️ How to Run
+1. Clone this repository  
+
 # CodeIgniter 4 Framework
 
 ## What is CodeIgniter?
